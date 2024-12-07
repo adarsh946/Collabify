@@ -5,11 +5,11 @@ import {
   nextjsMiddlewareRedirect,
 } from "@convex-dev/auth/nextjs/server";
 
-const isSignInPage = createRouteMatcher(["/signin"]);
+const isSignInPage = createRouteMatcher(["/auth"]);
 
 export default convexAuthNextjsMiddleware((request) => {
   if (!isSignInPage(request) && !isAuthenticatedNextjs) {
-    return nextjsMiddlewareRedirect(request, "/authPage");
+    return nextjsMiddlewareRedirect(request, "/auth");
   }
 });
 
